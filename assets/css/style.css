@@ -1,4 +1,8 @@
 #weather-banner{
     border: 1px solid black;
     background-image: url("../images/weather-banner.jpg");
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    font-size: 48px;
 }
