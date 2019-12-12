@@ -15,3 +15,15 @@
     margin: auto;
     margin-top: 50px;
 }
+
+#city-info{
+    background-color: lightgray;
+    border: 1px solid black;
+    height: 225px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#chosen-city{
+    visibility: hidden;
+}
