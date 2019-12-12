@@ -5,4 +5,13 @@
     margin: auto;
     text-align: center;
     font-size: 48px;
+    font-weight: bold;
+}
+
+#search-section{
+    background-color: lightgray;
+    border: 1px solid black;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
 }
