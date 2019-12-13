@@ -9,7 +9,7 @@ $("#search-button").on("click", function() {
       })
 
       .then(function(response) {
-          
+          console.log(response);
       });
 
 });
