@@ -16,6 +16,11 @@
     margin-top: 50px;
 }
 
+#search-button{
+    background-color: blue;
+    color: white;
+}
+
 #city-info{
     background-color: lightgray;
     border: 1px solid black;
