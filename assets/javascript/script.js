@@ -2,7 +2,7 @@
 
 $("#search-button").on("click", function() {
   var city = document.getElementById("search-input").value;
-  alert(city);
+  console.log(city);
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
 
     $.ajax({
@@ -12,6 +12,8 @@ $("#search-button").on("click", function() {
 
       .then(function(response) {
           console.log(response);
+          $("#chosen-city").text(response.name);
+          $("#date").text(new Date());
       });
 
 });
