@@ -13,7 +13,8 @@ $("#search-button").on("click", function() {
       .then(function(response) {
           console.log(response);
           $("#chosen-city").text(response.name);
-          $("#date").text(new Date());
+          var d = moment().add(response.timezone, 'seconds').add(5, 'hours');
+          $("#date").text(d);
       });
 
 });
