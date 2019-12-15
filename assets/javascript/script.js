@@ -12,9 +12,13 @@ $("#search-button").on("click", function() {
 
       .then(function(response) {
           console.log(response);
-          $("#chosen-city").text(response.name);
-          var d = moment().add(response.timezone, 'seconds').add(5, 'hours');
-          $("#date").text(d);
+          $("#chosen-city").text(response.name + " ");
+          var utc = moment.tz("Atlantic/Reykjavik");
+          var d = utc.add(response.timezone, 'seconds');
+          d = d.toString();
+          var cut = jQuery.trim(d).substring(0, 25)
+          .split(" ").slice(0, -1).join(" ");
+          $("#date").text(" " + cut);
       });
 
 });
