@@ -20,6 +20,7 @@ $("#search-button").on("click", function() {
           .split(" ").slice(0, -1).join(" ");
           $("#date").text(cut);
           $("#temperature").text(Math.round(response.main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+          $("#humidity").text(response.main.humidity + "%");
       });
 
 });
