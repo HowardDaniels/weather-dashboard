@@ -18,7 +18,8 @@ $("#search-button").on("click", function() {
           d = d.toString();
           var cut = jQuery.trim(d).substring(0, 25)
           .split(" ").slice(0, -1).join(" ");
-          $("#date").text(" " + cut);
+          $("#date").text(cut);
+          $("#temperature").text(Math.round(response.main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
       });
 
 });
