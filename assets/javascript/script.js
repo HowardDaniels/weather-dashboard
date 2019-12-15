@@ -21,6 +21,7 @@ $("#search-button").on("click", function() {
           $("#date").text(cut);
           $("#temperature").text(Math.round(response.main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
           $("#humidity").text(response.main.humidity + "%");
+          $("#wind-speed").text(Math.round(response.wind.speed * 1.609) + " kph/" + Math.round(response.wind.speed) + " mph");
       });
 
 });
