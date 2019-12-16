@@ -42,4 +42,15 @@ $("#search-button").on("click", function() {
 
   });
 
+  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&mode=xml";
+
+  $.ajax({
+    url: queryURL3,
+    method: "GET"
+  })
+
+  .then(function(response) {
+
+  });
+
 });
