@@ -28,7 +28,7 @@
 #city-info{
     background-color: lightgray;
     border: 1px solid black;
-    height: 250px;
+    height: 325px;
     margin: auto;
     margin-top: 50px;
     padding: 10px;
@@ -42,14 +42,24 @@ ul{
 
 #chosen-city{
     visibility: visible;
+    text-indent: 50px;
 }
 
 #space{
     visibility: hidden;
 }
 
+#icon{
+    margin-left: 50px;
+}
+
+#date{
+    text-indent: 50px;
+}
+
 .city-data{
     text-align: left;
+    text-indent: 50px;
 }
 
 #five-day{
