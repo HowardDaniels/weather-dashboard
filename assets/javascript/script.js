@@ -51,8 +51,12 @@ $("#search-button").on("click", function() {
 
   .then(function(response) {
     console.log(response);
-    $("#forecast1").text(response.list[0].dt_txt);
-    $("#forecast2").text(response.list[8].dt_txt);
+    /* var local = moment.tz("Atlantic/Reykjavik").format().add(response.city.timezone, 'seconds');
+    local = local.toString(); */
+    var local = moment.tz("Atlantic/Reykjavik").add(response.city.timezone, 'seconds');
+    var localdate = moment(local).format('L');
+    $("#forecast1").text(localdate);
+    $("#forecast2").text(local.add(1, 'days'));
     $("#forecast3").text(response.list[16].dt_txt);
     $("#forecast4").text(response.list[24].dt_txt);
     $("#forecast5").text(response.list[32].dt_txt);
