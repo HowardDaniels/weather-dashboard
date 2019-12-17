@@ -42,7 +42,7 @@ $("#search-button").on("click", function() {
 
   });
 
-  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&mode=xml";
+  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
 
   $.ajax({
     url: queryURL3,
@@ -50,6 +50,12 @@ $("#search-button").on("click", function() {
   })
 
   .then(function(response) {
+    console.log(response);
+    $("#forecast1").text(response.list[0].dt_txt);
+    $("#forecast2").text(response.list[8].dt_txt);
+    $("#forecast3").text(response.list[16].dt_txt);
+    $("#forecast4").text(response.list[24].dt_txt);
+    $("#forecast5").text(response.list[32].dt_txt);
 
   });
 
