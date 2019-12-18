@@ -70,6 +70,12 @@ $("#search-button").on("click", function() {
     $("#icon3").attr("src", "http://openweathermap.org/img/wn/" + response.list[24].weather[0].icon + "@2x.png");
     $("#icon4").attr("src", "http://openweathermap.org/img/wn/" + response.list[32].weather[0].icon + "@2x.png");
     $("#icon5").attr("src", "http://openweathermap.org/img/wn/" + response.list[39].weather[0].icon + "@2x.png");
+
+    $("#temp1").text("Temp: " + Math.round(response.list[8].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[8].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+    $("#temp2").text("Temp: " + Math.round(response.list[16].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[16].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+    $("#temp3").text("Temp: " + Math.round(response.list[24].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[24].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+    $("#temp4").text("Temp: " + Math.round(response.list[32].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[32].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+    $("#temp5").text("Temp: " + Math.round(response.list[39].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[39].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
   });
 
 });
