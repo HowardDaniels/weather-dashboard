@@ -1,22 +1,26 @@
-var cities = 0;
-
 $("#search-button").on("click", function() {
   var city = document.getElementById("search-input").value;
   console.log(city);
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
-  
-  /*
-    if (cities < 12){
-      cities += 1; */
-      var citystring = city.replace(" ", "-");
 
-    $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
-    $("#" + citystring).text(city);
-  //  } /*
-  //  else {
+      var citystring = city.replace(" ", "-");
+      var cityArray = document.getElementById("search-containers").children;
+      var cities = cityArray.length;
+
       
-      console.log(document.getElementById("search-containers").children);
-    //} 
+      if (cities < 12){
+      $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
+      $("#" + citystring).text(city);
+      }
+
+      else{
+       var last = cityArray[cityArray.length - 1];
+       $(last).remove();
+        $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
+      $("#" + citystring).text(city);
+
+      }
+
 
 function api(){
     $.ajax({
