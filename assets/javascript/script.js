@@ -1,3 +1,6 @@
+var savedquery = localStorage.getItem("recent");
+document.getElementById("search-input").value = savedquery;
+
 $("#search-button").on("click", function() {
   var city = document.getElementById("search-input").value;
   console.log(city);
@@ -25,6 +28,9 @@ function api(){
             $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
           $("#" + citystring).text(city);
           }
+
+          var recent = cityArray[0].textContent.toString();
+          localStorage.setItem("recent", recent);
     
           console.log(response);
           $("#chosen-city").text(response.name + " ");
@@ -104,3 +110,11 @@ $("#" + city).on("click", function(){
   api();
 });
 });
+/*
+city = document.getElementById("search-input").value;
+cityArray = document.getElementById("search-containers").children;
+var recent = cityArray[0];
+    localStorage.setItem("recent", recent);
+    city = localStorage.getItem("recent"); */
+
+    document.getElementById("search-button").click();
