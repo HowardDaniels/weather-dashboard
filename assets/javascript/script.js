@@ -7,21 +7,6 @@ $("#search-button").on("click", function() {
       var cityArray = document.getElementById("search-containers").children;
       var cities = cityArray.length;
 
-      
-      if (cities < 12){
-      $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
-      $("#" + citystring).text(city);
-      }
-
-      else{
-       var last = cityArray[cityArray.length - 1];
-       $(last).remove();
-        $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
-      $("#" + citystring).text(city);
-
-      }
-
-
 function api(){
     $.ajax({
         url: queryURL,
@@ -29,6 +14,18 @@ function api(){
       })
 
       .then(function(response) {
+        if (cities < 12){
+          $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
+          $("#" + citystring).text(city);
+          }
+    
+          else{
+           var last = cityArray[cityArray.length - 1];
+           $(last).remove();
+            $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
+          $("#" + citystring).text(city);
+          }
+    
           console.log(response);
           $("#chosen-city").text(response.name + " ");
           var utc = moment.tz("Atlantic/Reykjavik");
