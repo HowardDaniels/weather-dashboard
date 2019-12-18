@@ -51,20 +51,25 @@ $("#search-button").on("click", function() {
 
   .then(function(response) {
     console.log(response);
-    /* var local = moment.tz("Atlantic/Reykjavik").format().add(response.city.timezone, 'seconds');
-    local = local.toString(); */
+ 
     var local = moment.tz("Atlantic/Reykjavik").add(response.city.timezone, 'seconds');
     var localdate1 = (moment(local, "DD-MM-YYYY").add(1, "days")).format('L');
     var localdate2 = (moment(local, "DD-MM-YYYY").add(2, "days")).format('L');
     var localdate3 = (moment(local, "DD-MM-YYYY").add(3, "days")).format('L');
     var localdate4 = (moment(local, "DD-MM-YYYY").add(4, "days")).format('L');
     var localdate5 = (moment(local, "DD-MM-YYYY").add(5, "days")).format('L');
+
     $("#date1").text(localdate1);
     $("#date2").text(localdate2);
     $("#date3").text(localdate3);
     $("#date4").text(localdate4);
     $("#date5").text(localdate5);
 
+    $("#icon1").attr("src", "http://openweathermap.org/img/wn/" + response.list[8].weather[0].icon + "@2x.png");
+    $("#icon2").attr("src", "http://openweathermap.org/img/wn/" + response.list[16].weather[0].icon + "@2x.png");
+    $("#icon3").attr("src", "http://openweathermap.org/img/wn/" + response.list[24].weather[0].icon + "@2x.png");
+    $("#icon4").attr("src", "http://openweathermap.org/img/wn/" + response.list[32].weather[0].icon + "@2x.png");
+    $("#icon5").attr("src", "http://openweathermap.org/img/wn/" + response.list[39].weather[0].icon + "@2x.png");
   });
 
 });
