@@ -21,6 +21,14 @@
     color: white;
 }
 
+.citycontainer{
+    background-color: white;
+    width: 200px;
+    height: 25px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
 #city-info-row{
     height: auto;
 }

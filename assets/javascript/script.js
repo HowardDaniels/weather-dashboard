@@ -5,8 +5,10 @@ $("#search-button").on("click", function() {
   console.log(city);
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
     
+    $("#search-containers").prepend("<button class='citycontainer' id =" + city + "></button>");
+    $("#" + city).text(city);
 
-
+function api(){
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -83,5 +85,6 @@ $("#search-button").on("click", function() {
     $("#humidity4").text(response.list[32].main.humidity + "%");
     $("#humidity5").text(response.list[39].main.humidity + "%");
   });
+}
 
 });
