@@ -55,11 +55,15 @@ $("#search-button").on("click", function() {
     local = local.toString(); */
     var local = moment.tz("Atlantic/Reykjavik").add(response.city.timezone, 'seconds');
     var localdate = moment(local).format('L');
+    var localdate2 = (moment(local, "DD-MM-YYYY").add(1, "days")).format('L');
+    var localdate3 = (moment(local, "DD-MM-YYYY").add(2, "days")).format('L');
+    var localdate4 = (moment(local, "DD-MM-YYYY").add(3, "days")).format('L');
+    var localdate5 = (moment(local, "DD-MM-YYYY").add(4, "days")).format('L');
     $("#forecast1").text(localdate);
-    $("#forecast2").text(local.add(1, 'days'));
-    $("#forecast3").text(response.list[16].dt_txt);
-    $("#forecast4").text(response.list[24].dt_txt);
-    $("#forecast5").text(response.list[32].dt_txt);
+    $("#forecast2").text(localdate2);
+    $("#forecast3").text(localdate3);
+    $("#forecast4").text(localdate4);
+    $("#forecast5").text(localdate5);
 
   });
 
