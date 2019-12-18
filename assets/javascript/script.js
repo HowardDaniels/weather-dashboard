@@ -54,11 +54,11 @@ $("#search-button").on("click", function() {
     /* var local = moment.tz("Atlantic/Reykjavik").format().add(response.city.timezone, 'seconds');
     local = local.toString(); */
     var local = moment.tz("Atlantic/Reykjavik").add(response.city.timezone, 'seconds');
-    var localdate1 = moment(local).format('L');
-    var localdate2 = (moment(local, "DD-MM-YYYY").add(1, "days")).format('L');
-    var localdate3 = (moment(local, "DD-MM-YYYY").add(2, "days")).format('L');
-    var localdate4 = (moment(local, "DD-MM-YYYY").add(3, "days")).format('L');
-    var localdate5 = (moment(local, "DD-MM-YYYY").add(4, "days")).format('L');
+    var localdate1 = (moment(local, "DD-MM-YYYY").add(1, "days")).format('L');
+    var localdate2 = (moment(local, "DD-MM-YYYY").add(2, "days")).format('L');
+    var localdate3 = (moment(local, "DD-MM-YYYY").add(3, "days")).format('L');
+    var localdate4 = (moment(local, "DD-MM-YYYY").add(4, "days")).format('L');
+    var localdate5 = (moment(local, "DD-MM-YYYY").add(5, "days")).format('L');
     $("#date1").text(localdate1);
     $("#date2").text(localdate2);
     $("#date3").text(localdate3);
