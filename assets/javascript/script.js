@@ -76,6 +76,12 @@ $("#search-button").on("click", function() {
     $("#temp3").text("Temp: " + Math.round(response.list[24].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[24].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
     $("#temp4").text("Temp: " + Math.round(response.list[32].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[32].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
     $("#temp5").text("Temp: " + Math.round(response.list[39].main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.list[39].main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
+
+    $("#humidity1").text(response.list[8].main.humidity + "%");
+    $("#humidity2").text(response.list[16].main.humidity + "%");
+    $("#humidity3").text(response.list[24].main.humidity + "%");
+    $("#humidity4").text(response.list[32].main.humidity + "%");
+    $("#humidity5").text(response.list[39].main.humidity + "%");
   });
 
 });
