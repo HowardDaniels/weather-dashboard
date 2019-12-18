@@ -87,4 +87,9 @@ function api(){
   });
 }
 
+api();
+
+$("#" + city).on("click", function(){
+  api();
+});
 });
