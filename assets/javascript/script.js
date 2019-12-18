@@ -3,7 +3,7 @@ $("#search-button").on("click", function() {
   console.log(city);
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
 
-      var citystring = city.replace(" ", "");
+      var citystring = city.replace(/\s/g, "");
       var cityArray = document.getElementById("search-containers").children;
       var cities = cityArray.length;
 
