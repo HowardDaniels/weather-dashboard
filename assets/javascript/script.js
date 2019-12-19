@@ -4,11 +4,8 @@ var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [
 console.log(cityButtonsParsed[1]);
 console.log(cityButtonsParsed.length);
 function generateButtons(){
-for (i = 0; i<cityButtonsParsed.length; i++){
+for (i = 0; i<12; i++){
   $("#search-containers").append("<button class='citycontainer' id =" + i + "name:" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
-if (cityButtonsParsed.length > 12){
-  $("#" + 12).remove();
-}
 }
 }
 generateButtons();
