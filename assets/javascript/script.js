@@ -1,23 +1,71 @@
-var savedquery = localStorage.getItem("recent");
+$(document).ready(function(){
+var cityButtonsUnparsed = localStorage.getItem("cityArray");
+var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [];
+console.log(cityButtonsParsed[1]);
+function generateButtons(){
+for (i = 0; i<cityButtonsParsed.length; i++){
+  $("#search-containers").append("<button class='citycontainer' id =" + i + "name:" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
+}
+}
+generateButtons();
+
+/* var savedquery = localStorage.getItem("recent");
 document.getElementById("search-input").value = savedquery;
+var queryArray = localStorage.getItem("cityArray");
+console.log(queryArray);
+
+var savedqueryArray = localStorage.getItem("cityArray");
+for (i = 0; i<savedqueryArray[i].length; i++){
+  $("#search-containers").append("<button class='citycontainer' id =" + cityArray[i].replace(/\s/g, "") + "></button>");
+          $("#" + cityArray[i].replace(/\s/g, "")).text(cityArray[i]);
+}
+
+var queryArray = [];
+var savedquerylist = localStorage.getItem("savedArray");
+savedquerylist = [];
+savedquerylist.prepend(savedquery);
+for (i=0; i<savedquerylist.length; i++){
+  $("#search-containers").append("<button class='citycontainer' id =" + savedquerylist[i] + "></button>");
+  $("#" + savedquerylist[i]).replace(/\s/g, "").text(savedquerylist[i]);
+  
+}
+*/
 
 $("#search-button").on("click", function() {
   var city = document.getElementById("search-input").value;
-  console.log(city);
+  var existingCities = localStorage.getItem("cityArray");
+  existingCities = existingCities ? existingCities.split(',') : [];
+  existingCities.unshift(city);
+  localStorage.setItem("cityArray", existingCities.toString());
+  /* savedquerylist.append(city); */
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
-
-      var citystring = city.replace(/\s/g, "");
+/*
+      var citystring = city.replace(/\s/g, ""); 
       var cityArray = document.getElementById("search-containers").children;
+      var cities = cityArray.length; */
+   //   localStorage.setItem("cityArray", cityArray);
+    /*  for (i = 0; i < cities; i++){
+        queryArray.push(cityArray[i].innerText);
+      }
+      console.log(queryArray);
+      localStorage.setItem("cityArray", cityArray);
       var cities = cityArray.length;
+    /*  for (i = 0; i < cities; i++){
+        queryArray[i] = cityArray[i].textContent;
+      }
 
-function api(){
+      console.log(queryArray);
+ */
+//function api(){
     $.ajax({
         url: queryURL,
         method: "GET"
       })
 
       .then(function(response) {
-        if (cities < 12){
+
+
+     /*   if (cities < 12){
           $("#search-containers").prepend("<button class='citycontainer' id =" + citystring + "></button>");
           $("#" + citystring).text(city);
           }
@@ -29,9 +77,20 @@ function api(){
           $("#" + citystring).text(city);
           }
 
+      
+        var recent = localStorage.getItem(name);
+/*
+          console.log(cityArray);
           var recent = cityArray[0].textContent.toString();
           localStorage.setItem("recent", recent);
-    
+          
+          /*
+          for (i = 0; i<cityArray.length; i++){
+            var savedArray += cityArray[i];
+          }
+          localStorage.setItem("savedArray", savedArray);
+          
+    */
           console.log(response);
           $("#chosen-city").text(response.name + " ");
           var utc = moment.tz("Atlantic/Reykjavik");
@@ -102,19 +161,18 @@ function api(){
     $("#humidity4").text(response.list[32].main.humidity + "%");
     $("#humidity5").text(response.list[39].main.humidity + "%");
   });
-}
-
-api();
-
-$("#" + city).on("click", function(){
-  api();
 });
-});
+
+//api();
+// });
+
 /*
 city = document.getElementById("search-input").value;
 cityArray = document.getElementById("search-containers").children;
 var recent = cityArray[0];
     localStorage.setItem("recent", recent);
     city = localStorage.getItem("recent"); */
+/*
+ document.getElementById("search-button").click();  */
 
-    document.getElementById("search-button").click();
+});
