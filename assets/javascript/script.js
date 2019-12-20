@@ -1,7 +1,6 @@
 $(document).ready(function(){
 var cityButtonsUnparsed = localStorage.getItem("cityArray");
 var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [];
-console.log(cityButtonsParsed[1]);
 console.log(cityButtonsParsed.length);
 function generateButtons(){
 
@@ -19,8 +18,9 @@ for (i = 0; i< cityButtonsParsed.length; i++){
 }
 generateButtons();
 
-
-var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityButtonsParsed[0] + "&appid=5f20ec22761478f699827153c2dae50d";
+function api(){
+var cityquery = cityButtonsParsed[0];
+var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
 
 $.ajax({
   url: startqueryURL,
@@ -61,7 +61,7 @@ $.ajax({
 
   });
 
-  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityButtonsParsed[0] + "&appid=5f20ec22761478f699827153c2dae50d";
+  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
 
   $.ajax({
     url: startqueryURL3,
@@ -102,6 +102,7 @@ $.ajax({
     $("#humidity4").text(response.list[32].main.humidity + "%");
     $("#humidity5").text(response.list[39].main.humidity + "%");
   });
+}
 /* var savedquery = localStorage.getItem("recent");
 document.getElementById("search-input").value = savedquery;
 var queryArray = localStorage.getItem("cityArray");
@@ -131,7 +132,9 @@ $("#search-button").on("click", function() {
   existingCities.unshift(city);
   localStorage.setItem("cityArray", existingCities.toString());
   /* savedquerylist.append(city); */
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
+  cityquery = city;
+api();
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
 /*
       var citystring = city.replace(/\s/g, ""); 
       var cityArray = document.getElementById("search-containers").children;
@@ -149,7 +152,7 @@ $("#search-button").on("click", function() {
 
       console.log(queryArray);
  */
-function api(){
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -217,7 +220,7 @@ function api(){
 
   });
 
-  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5f20ec22761478f699827153c2dae50d";
+  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
 
   $.ajax({
     url: queryURL3,
@@ -258,10 +261,26 @@ function api(){
     $("#humidity4").text(response.list[32].main.humidity + "%");
     $("#humidity5").text(response.list[39].main.humidity + "%");
   });
-};
-api();
+
+
 });
 
+api();
+
+
+  document.getElementsByClassName(".citycontainer").addEventListener("click", function(){
+    document.getElementById("search-input").value = getElementsByClassName(".citycontainer").name;
+    cityquery = cityButtonsParsed[i];
+    $("#search-button").click();
+    api();
+
+
+  /*
+  var cityquery = cityButtonsParsed[i];
+  var buttonqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
+api();
+*/
+});
 });
 //api();
 // });
