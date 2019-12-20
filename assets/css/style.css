@@ -27,6 +27,7 @@
     height: 25px;
     border: 1px solid black;
     margin-top: 10px;
+    visibility: hidden;
 }
 
 #city-info-row{
@@ -46,6 +47,7 @@
 
 ul{
     line-height: 80%;
+    visibility: hidden;
 }
 
 #chosen-city{
@@ -87,6 +89,7 @@ ul{
 #forecasttext{
     position: relative;
     text-align: center;
+    visibility: hidden;
 }
 
 #box-row{
@@ -97,11 +100,6 @@ ul{
     padding: 10px;
 }
 
-.col-sm-2{
-    background-color: turquoise;
-    height: 25px;
-}
-
 .col-md-2{
     background-color: royalblue;
     margin-left: 5px;
@@ -109,6 +107,7 @@ ul{
     height: 200px;
     width: 125px;
     border: 1px solid black;
+    visibility: hidden;
 }
 
 .clearfix::after {

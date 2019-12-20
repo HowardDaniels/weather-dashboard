@@ -4,9 +4,15 @@ var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [
 console.log(cityButtonsParsed[1]);
 console.log(cityButtonsParsed.length);
 function generateButtons(){
-for (i = 0; i<12; i++){
+for (i = 0; cityButtonsParsed.length; i++){
   $("#search-containers").append("<button class='citycontainer' id =" + i + "name:" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
-}
+ /* if (document.getElementsByName(cityButtonsParsed[i]).textContent = "undefined"){
+    document.getElementById(i).setAttribute("style", "visibility: hidden;");
+  }
+  else {
+     document.getElementById(i).setAttribute("style", "visibility: visible;");
+  } */
+} 
 }
 generateButtons();
 
@@ -19,6 +25,10 @@ $.ajax({
 
 .then(function(response) {
   console.log(response);
+          $("#forecasttext").attr("style", "visibility: visible;");
+          $("ul").attr("style", "visibility: visible;");
+          $(".col-md-2").attr("style", "visibility: visible;");
+          $(".citycontainer").attr("style", "visibility: visible;");
           $("#chosen-city").text(response.name + " ");
           var utc = moment.tz("Atlantic/Reykjavik");
           var d = utc.add(response.timezone, 'seconds');
@@ -172,6 +182,9 @@ $("#search-button").on("click", function() {
           
     */
           console.log(response);
+          $("#forecasttext").attr("style", "visibility: visible;");
+          $("ul").attr("style", "visibility: visible;");
+          $(".col-md-2").attr("style", "visibility: visible;");
           $("#chosen-city").text(response.name + " ");
           var utc = moment.tz("Atlantic/Reykjavik");
           var d = utc.add(response.timezone, 'seconds');
