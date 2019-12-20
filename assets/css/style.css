@@ -27,7 +27,7 @@
     height: 25px;
     border: 1px solid black;
     margin-top: 10px;
-    visibility: hidden;
+/*  visibility: hidden; */
 }
 
 #city-info-row{
@@ -47,11 +47,11 @@
 
 ul{
     line-height: 80%;
-    visibility: hidden;
+     visibility: hidden;
 }
 
 #chosen-city{
-    visibility: visible;
+   /* visibility: visible; */
     text-indent: 50px;
 }
 
@@ -89,7 +89,7 @@ ul{
 #forecasttext{
     position: relative;
     text-align: center;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 #box-row{
@@ -107,7 +107,7 @@ ul{
     height: 200px;
     width: 125px;
     border: 1px solid black;
-    visibility: hidden;
+ /*   visibility: hidden; */
 }
 
 .clearfix::after {

@@ -4,17 +4,21 @@ var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [
 console.log(cityButtonsParsed[1]);
 console.log(cityButtonsParsed.length);
 function generateButtons(){
-for (i = 0; cityButtonsParsed.length; i++){
+
+for (i = 0; i< cityButtonsParsed.length; i++){
   $("#search-containers").append("<button class='citycontainer' id =" + i + "name:" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
  /* if (document.getElementsByName(cityButtonsParsed[i]).textContent = "undefined"){
     document.getElementById(i).setAttribute("style", "visibility: hidden;");
   }
   else {
      document.getElementById(i).setAttribute("style", "visibility: visible;");
-  } */
+  }
 } 
+} */
+}
 }
 generateButtons();
+
 
 var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityButtonsParsed[0] + "&appid=5f20ec22761478f699827153c2dae50d";
 
