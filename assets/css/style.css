@@ -89,7 +89,7 @@ ul{
 #forecasttext{
     position: relative;
     text-align: center;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 #box-row{
