@@ -149,7 +149,7 @@ $("#search-button").on("click", function() {
 
       console.log(queryArray);
  */
-//function api(){
+function api(){
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -258,8 +258,11 @@ $("#search-button").on("click", function() {
     $("#humidity4").text(response.list[32].main.humidity + "%");
     $("#humidity5").text(response.list[39].main.humidity + "%");
   });
+};
+api();
 });
 
+});
 //api();
 // });
 
@@ -271,5 +274,3 @@ var recent = cityArray[0];
     city = localStorage.getItem("recent"); */
 /*
  document.getElementById("search-button").click();  */
-
-});
