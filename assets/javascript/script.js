@@ -5,7 +5,7 @@ console.log(cityButtonsParsed.length);
 function generateButtons(){
 
 for (i = 0; i< cityButtonsParsed.length; i++){
-  $("#search-containers").append("<button class='citycontainer' id =" + i + "name:" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
+  $("#search-containers").append("<button class='citycontainer' id =" + cityButtonsParsed[i] + "" + "onClick='buttonclick(this.id)'" + ">" + cityButtonsParsed[i] + "</button>");
  /* if (document.getElementsByName(cityButtonsParsed[i]).textContent = "undefined"){
     document.getElementById(i).setAttribute("style", "visibility: hidden;");
   }
@@ -20,7 +20,7 @@ generateButtons();
 
 function api(){
 var cityquery = cityButtonsParsed[0];
-var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
+var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
 
 $.ajax({
   url: startqueryURL,
@@ -47,7 +47,7 @@ $.ajax({
           var lat = response.coord.lat;
           var lon = response.coord.lon;
 
-      var startqueryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=5f20ec22761478f699827153c2dae50d&lat=" + lat + "&lon=" + lon;
+      var startqueryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=989c215b549a2554a8b1398113f2dd09&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: startqueryURL2,
@@ -61,7 +61,7 @@ $.ajax({
 
   });
 
-  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
+  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
 
   $.ajax({
     url: startqueryURL3,
@@ -134,7 +134,7 @@ $("#search-button").on("click", function() {
   /* savedquerylist.append(city); */
   cityquery = city;
 api();
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
 /*
       var citystring = city.replace(/\s/g, ""); 
       var cityArray = document.getElementById("search-containers").children;
@@ -206,7 +206,7 @@ api();
           var lat = response.coord.lat;
           var lon = response.coord.lon;
 
-      var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=5f20ec22761478f699827153c2dae50d&lat=" + lat + "&lon=" + lon;
+      var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=989c215b549a2554a8b1398113f2dd09&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: queryURL2,
@@ -220,7 +220,7 @@ api();
 
   });
 
-  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
+  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
 
   $.ajax({
     url: queryURL3,
@@ -267,20 +267,21 @@ api();
 
 api();
 
+function buttonclick(clicked_id){
+      alert(clicked_id.toString());
+  }
 
-  document.getElementsByClassName(".citycontainer").addEventListener("click", function(){
+/*  document.getElementsByClassName(".citycontainer").addEventListener("click", function(){
     document.getElementById("search-input").value = getElementsByClassName(".citycontainer").name;
     cityquery = cityButtonsParsed[i];
     $("#search-button").click();
     api();
 
-
-  /*
+  */ /*
   var cityquery = cityButtonsParsed[i];
   var buttonqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=5f20ec22761478f699827153c2dae50d";
-api();
-*/
-});
+api(); */
+
 });
 //api();
 // });
