@@ -2,21 +2,41 @@ $(document).ready(function(){
 var cityButtonsUnparsed = localStorage.getItem("cityArray");
 var cityButtonsParsed = cityButtonsUnparsed ? cityButtonsUnparsed.split(',') : [];
 console.log(cityButtonsParsed.length);
+
 function generateButtons(){
 
-for (i = 0; i< cityButtonsParsed.length; i++){
-  $("#search-containers").append("<button class='citycontainer' id =" + cityButtonsParsed[i] + "" + "onClick='buttonclick(this.id)'" + ">" + cityButtonsParsed[i] + "</button>");
- /* if (document.getElementsByName(cityButtonsParsed[i]).textContent = "undefined"){
-    document.getElementById(i).setAttribute("style", "visibility: hidden;");
-  }
-  else {
-     document.getElementById(i).setAttribute("style", "visibility: visible;");
-  }
-} 
-} */
+    for (i = 0; i< cityButtonsParsed.length; i++){
+      $("#search-containers").append("<button class='citycontainer' id =" + cityButtonsParsed[i] + ">" + cityButtonsParsed[i] + "</button>");
+    /* if (document.getElementsByName(cityButtonsParsed[i]).textContent = "undefined"){
+        document.getElementById(i).setAttribute("style", "visibility: hidden;");
+      }
+      else {
+        document.getElementById(i).setAttribute("style", "visibility: visible;");
+      }
+    } 
+    } */
+    }
 }
-}
+
+
 generateButtons();
+
+var myButtons = document.getElementsByClassName("citycontainer")
+console.log(myButtons.length)
+
+for (var i = 0; i < myButtons.length; i++){
+  myButtons[i].addEventListener("click", function(e){
+    alert(e.target.id);
+  })
+}
+
+// myButtons.forEach(function (item,index){
+//   item.addEventListener("click", function(e){
+//     alert(e.target.id);
+//   });
+
+// });
+
 
 function api(){
 var cityquery = cityButtonsParsed[0];
@@ -268,8 +288,16 @@ api();
 api();
 
 function buttonclick(clicked_id){
-      alert(clicked_id.toString());
-  }
+      alert(clicked_id);
+}
+  
+  //buttonclick();
+/*
+  var reply_click = function()
+{
+    alert("Button clicked, id "+this.id+", text"+this.innerHTML);
+}
+document.getElementsByClassName(".citycontainer").onclick = reply_click;
 
 /*  document.getElementsByClassName(".citycontainer").addEventListener("click", function(){
     document.getElementById("search-input").value = getElementsByClassName(".citycontainer").name;
