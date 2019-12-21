@@ -20,7 +20,7 @@ generateButtons();
 
 function api(){
 var cityquery = cityButtonsParsed[0];
-var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
+var startqueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=166a433c57516f51dfab1f7edaed8413";
 
 $.ajax({
   url: startqueryURL,
@@ -47,7 +47,7 @@ $.ajax({
           var lat = response.coord.lat;
           var lon = response.coord.lon;
 
-      var startqueryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=989c215b549a2554a8b1398113f2dd09&lat=" + lat + "&lon=" + lon;
+      var startqueryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=166a433c57516f51dfab1f7edaed8413&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: startqueryURL2,
@@ -61,7 +61,7 @@ $.ajax({
 
   });
 
-  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
+  var startqueryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=166a433c57516f51dfab1f7edaed8413";
 
   $.ajax({
     url: startqueryURL3,
@@ -134,7 +134,7 @@ $("#search-button").on("click", function() {
   /* savedquerylist.append(city); */
   cityquery = city;
 api();
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityquery + "&appid=166a433c57516f51dfab1f7edaed8413";
 /*
       var citystring = city.replace(/\s/g, ""); 
       var cityArray = document.getElementById("search-containers").children;
@@ -198,7 +198,7 @@ api();
           d = d.toString();
           var cut = jQuery.trim(d).substring(0, 25)
           .split(" ").slice(0, -1).join(" ");
-          $("#date").text(cut);
+          $("#date").text(cut)
           $("#temperature").text(Math.round(response.main.temp - 273.15) + " " + "\xB0" + "C/" + Math.round(((response.main.temp - 273.15)* 9/5) + 32) + " " + "\xB0" + "F");
           $("#humidity").text(response.main.humidity + "%");
           $("#wind-speed").text(Math.round(response.wind.speed * 1.609) + " kph/" + Math.round(response.wind.speed) + " mph");
@@ -206,7 +206,7 @@ api();
           var lat = response.coord.lat;
           var lon = response.coord.lon;
 
-      var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=989c215b549a2554a8b1398113f2dd09&lat=" + lat + "&lon=" + lon;
+      var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=166a433c57516f51dfab1f7edaed8413&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: queryURL2,
@@ -220,7 +220,7 @@ api();
 
   });
 
-  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=989c215b549a2554a8b1398113f2dd09";
+  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityquery + "&appid=166a433c57516f51dfab1f7edaed8413";
 
   $.ajax({
     url: queryURL3,
