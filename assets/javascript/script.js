@@ -26,8 +26,10 @@ console.log(myButtons.length)
 
 for (var i = 0; i < myButtons.length; i++){
   myButtons[i].addEventListener("click", function(e){
-    alert(e.target.id);
-  })
+    var citytext = e.target.innerHTML;
+    document.getElementById("search-input").value = citytext;
+    document.getElementById("search-button").click();
+    })
 }
 
 // myButtons.forEach(function (item,index){
@@ -288,7 +290,7 @@ api();
 api();
 
 function buttonclick(clicked_id){
-      alert(clicked_id);
+   
 }
   
   //buttonclick();
